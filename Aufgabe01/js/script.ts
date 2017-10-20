@@ -106,7 +106,7 @@ function init(): void {
     crc2.fillStyle = "#007700";
     crc2.fill();
 
-    
+
 //Baum2  
     //Baumstamm
     crc2.beginPath();
