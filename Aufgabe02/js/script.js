@@ -1,5 +1,6 @@
 var Portfolio;
 (function (Portfolio) {
+    //tslind wird noch in der kommenden Woche installiert
     window.addEventListener("load", init);
     function init() {
         let canvas = document.getElementsByTagName("canvas")[0];
@@ -50,7 +51,7 @@ var Portfolio;
         crc2.moveTo(0, 30);
         crc2.lineTo(800, 500);
         crc2.stroke();
-        //Gondel   200 160
+        //Gondel
         crc2.beginPath();
         crc2.moveTo(600, 380);
         crc2.lineTo(600, 410);
@@ -76,31 +77,48 @@ var Portfolio;
         crc2.fillStyle = "#ffffff";
         crc2.fill();
         //Baum   
-        let _x = 100;
-        let _y = 550;
-        //Baumstamm  
-        crc2.beginPath();
-        crc2.moveTo(0 + _x, 0 + _y);
-        crc2.lineTo(-10 + _x, 0 + _y);
-        crc2.lineTo(-10 + _x, -40 + _y);
-        crc2.lineTo(10 + _x, -40 + _y);
-        crc2.lineTo(10 + _x, 0 + _y);
-        crc2.lineTo(0 + _x, 0 + _y);
-        crc2.closePath();
-        crc2.stroke();
-        crc2.fillStyle = "#660000";
-        crc2.fill();
-        //Baumnadeln
-        crc2.beginPath();
-        crc2.moveTo(0 + _x, -40 + _y);
-        crc2.lineTo(-50 + _x, -40 + _y);
-        crc2.lineTo(0 + _x, -190 + _y);
-        crc2.lineTo(50 + _x, -40 + _y);
-        crc2.lineTo(0 + _x, -40 + _y);
-        crc2.closePath();
-        crc2.stroke();
-        crc2.fillStyle = "#007700";
-        crc2.fill();
+        for (let i = 0; i < 5; i++) {
+            let x = 100 + Math.random() * 350;
+            let y = 500 + Math.random() * 90;
+            drawTree(x, y);
+        }
+        function drawTree(_x, _y) {
+            //Baumstamm  
+            crc2.beginPath();
+            crc2.moveTo(0 + _x, 0 + _y);
+            crc2.lineTo(-10 + _x, 0 + _y);
+            crc2.lineTo(-10 + _x, -40 + _y);
+            crc2.lineTo(10 + _x, -40 + _y);
+            crc2.lineTo(10 + _x, 0 + _y);
+            crc2.lineTo(0 + _x, 0 + _y);
+            crc2.closePath();
+            crc2.stroke();
+            crc2.fillStyle = "#660000";
+            crc2.fill();
+            //Baumnadeln
+            crc2.beginPath();
+            crc2.moveTo(0 + _x, -40 + _y);
+            crc2.lineTo(-50 + _x, -40 + _y);
+            crc2.lineTo(0 + _x, -190 + _y);
+            crc2.lineTo(50 + _x, -40 + _y);
+            crc2.lineTo(0 + _x, -40 + _y);
+            crc2.closePath();
+            crc2.stroke();
+            crc2.fillStyle = "#007700";
+            crc2.fill();
+        }
+        for (let i = 0; i < 500; i++) {
+            let xs = 0 + Math.random() * 800;
+            let ys = 0 + Math.random() * 600;
+            drawSnow(xs, ys);
+        }
+        function drawSnow(_xs, _ys) {
+            //Schneeflocken
+            crc2.beginPath();
+            crc2.arc(_xs, _ys, 2, 0, 2 * Math.PI);
+            crc2.fillStyle = "#ffffff";
+            crc2.fill();
+        }
     }
 })(Portfolio || (Portfolio = {})); //Ende Block Gültigkeit
 //# sourceMappingURL=script.js.map

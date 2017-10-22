@@ -1,5 +1,7 @@
 namespace Portfolio { //Block Gültigkeit
 
+//tslind wird noch in der kommenden Woche installiert
+    
 window.addEventListener("load", init);
 
 function init(): void {
@@ -57,7 +59,7 @@ function init(): void {
     crc2.moveTo(0, 30);
     crc2.lineTo(800, 500);
     crc2.stroke();
-//Gondel   200 160
+//Gondel
     crc2.beginPath();
     crc2.moveTo(600, 380);
     crc2.lineTo(600, 410);
@@ -87,9 +89,19 @@ function init(): void {
     crc2.fillStyle = "#ffffff";
     crc2.fill();
     
+    
+    
+    
 //Baum   
-    let _x : number = 100;
-    let _y : number = 550;
+    
+    for (let i: number = 0; i < 5; i++) {
+            let x: number = 100 + Math.random() * 350;
+            let y: number = 500 + Math.random() * 90;
+            drawTree(x, y);
+}
+    
+    function drawTree(_x: number, _y: number): void {
+
  
     //Baumstamm  
     crc2.beginPath();
@@ -114,10 +126,21 @@ function init(): void {
     crc2.stroke();
     crc2.fillStyle = "#007700";
     crc2.fill();
-
+}
+for (let i: number = 0; i < 500; i++) {
+            let xs: number = 0 + Math.random() * 800;
+            let ys: number = 0 + Math.random() * 600;
+            drawSnow(xs, ys);
+}
     
-
+function drawSnow(_xs: number, _ys: number): void {
+//Schneeflocken
+crc2.beginPath();
+    crc2.arc(_xs, _ys, 2, 0, 2 * Math.PI);
+    crc2.fillStyle = "#ffffff";
+    crc2.fill();
     
+}
 }
     
 }//Ende Block Gültigkeit
