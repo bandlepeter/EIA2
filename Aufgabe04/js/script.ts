@@ -235,7 +235,7 @@ namespace Aufgabe04 { //Block Gültigkeit
         
         crc2.closePath();
         crc2.stroke();
-        crc2.fillStyle = "#ff7700";
+        crc2.fillStyle = _square.color;//"#ff7700";
         crc2.fill();
         
         //schädel

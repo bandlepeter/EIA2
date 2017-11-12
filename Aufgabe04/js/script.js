@@ -194,7 +194,7 @@ var Aufgabe04;
         crc2.lineTo(0 + _square.x, -38 + _square.y);
         crc2.closePath();
         crc2.stroke();
-        crc2.fillStyle = "#ff7700";
+        crc2.fillStyle = _square.color; //"#ff7700";
         crc2.fill();
         //schädel
         crc2.beginPath();
