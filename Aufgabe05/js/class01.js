@@ -4,27 +4,23 @@ var Aufgabe05;
         constructor(_x, _y) {
             this.x = _x;
             this.y = _y;
+            this.dx = 6 + Math.random() * 2 - 1;
+            this.dy = 3.6 + Math.random() * 2;
+            this.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
         }
         moveanddrawupdate() {
             this.move();
             this.draw();
         }
-        setRandomStyle() {
-            this.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
-        }
         move() {
-            this.x += 6 + Math.random() * 2 - 1; // hier experimentieren um
-            this.y += 3.6 + Math.random() * 2; // andere Bewegungsmuster zu finden
+            this.x += this.dx;
+            this.y += this.dy;
             //aus schleife für die kontinuierlichen skiefahrer
             if (this.x > 800) {
                 this.x = 0;
                 this.y = 135;
             }
         }
-        //move(): void {
-        //this.x += Math.random() * 4 - 2; // hier experimentieren um
-        //this.y += Math.random() * 4 - 2; // andere Bewegungsmuster zu finden
-        //}
         draw() {
             //?crc2.fillStyle = this.color;
             //crc2.fillRect(this.x, this.y, this.size, this.size);

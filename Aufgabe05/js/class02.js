@@ -2,17 +2,17 @@ var Aufgabe05;
 (function (Aufgabe05) {
     class snowclass {
         constructor(_x, _y) {
-            this.xsnow = _x;
-            this.ysnow = _y;
+            this.xsnow = _x + Math.random() * 800;
+            this.ysnow = _y + Math.random() * 600;
+            this.vy = 2 + Math.random();
         }
         snowmoveanddrawupdate() {
             this.snowmove();
             this.snowdraw();
         }
+        //Snow V
         snowmove() {
-            // this.xsnow += 6 + Math.random() * 2 - 1; // hier experimentieren um
-            this.ysnow += 2; // andere Bewegungsmuster zu finden
-            this.xsnow += 0 + Math.random();
+            this.ysnow += this.vy; //Fallgeschwindigkeit
             if (this.ysnow > 600) {
                 this.ysnow = 0;
             }
@@ -20,6 +20,7 @@ var Aufgabe05;
                 this.xsnow = 0;
             }
         }
+        //Snow Zeichnen
         snowdraw() {
             Aufgabe05.crc2.beginPath();
             Aufgabe05.crc2.arc(this.xsnow, this.ysnow, 2, 0, 2 * Math.PI);

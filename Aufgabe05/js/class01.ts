@@ -10,28 +10,25 @@ namespace Aufgabe05 { //Block Gültigkeit
             constructor(_x: number, _y: number) {
             this.x = _x;
             this.y = _y;
+            this.dx = 6 + Math.random() * 2 - 1;
+            this.dy = 3.6 + Math.random() * 2;
+            this.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
             }
             
             moveanddrawupdate(): void {
             this.move();
             this.draw();
             }
-            setRandomStyle(): void {
-            this.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
-            }
+            
             move(): void {
-            this.x += 6 + Math.random() * 2 - 1; // hier experimentieren um
-            this.y += 3.6 + Math.random() * 2; // andere Bewegungsmuster zu finden
-                
+            this.x += this.dx;
+            this.y += this.dy;    
             //aus schleife für die kontinuierlichen skiefahrer
             if (this.x > 800) {
                 this.x = 0;
                 this.y = 135;}
             }
-            //move(): void {
-            //this.x += Math.random() * 4 - 2; // hier experimentieren um
-            //this.y += Math.random() * 4 - 2; // andere Bewegungsmuster zu finden
-            //}
+            
 
             draw(): void {
             //?crc2.fillStyle = this.color;
@@ -83,7 +80,7 @@ namespace Aufgabe05 { //Block Gültigkeit
             crc2.lineTo(2 + this.x, -22 + this.y);
             crc2.lineTo(2 + this.x, -38 + this.y);
             crc2.lineTo(0 + this.x, -38 + this.y);
-        
+            
             crc2.closePath();
             crc2.stroke();
             crc2.fillStyle = this.color;//"#ff7700";
