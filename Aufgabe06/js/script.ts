@@ -17,11 +17,6 @@ namespace Aufgabe06 { //Block Gültigkeit
     let ngondel: number = 1;//n = Anzahl der Gondeln
     let ntree: number = 5;//n = Anzahl der Bäume
     //der Umweg über die n Variable ermöglicht eine flexieblere Anpassung
-    
-    let wolkeX: number[] = [];
-    let wolkeY: number[] = [];
-    let gondelX: number[] = [];
-    let gondelY: number[] = [];
  
     var image : any;
     
@@ -86,31 +81,28 @@ namespace Aufgabe06 { //Block Gültigkeit
           
 //--------------------------------------------INIT-SCHLEIFEN--------------------------------------------
         
-        /*for (let i: number = 0; i < 1; i++) {
-            wolkeX[i] = 500;
-            wolkeY[i] = 0;
-        }*/
         
+        //Gondeln
         for (let i: number = 0; i < ngondel; i++) {
             let s: gondelclass = new gondelclass(800, 500);
             objectarray.push(s);
             }
-        
+        //Wolken
         for (let i: number = 0; i < ncloud; i++) {
-            let s: cloudclass = new cloudclass(500, 135);//Werte müssen angepasst werden
+            let s: cloudclass = new cloudclass(500, 0);
             objectarray.push(s);
             }
-            
+        //Skiefahrer    
         for (let i: number = 0; i < nski; i++) {
             let s: skiclass = new skiclass(0, 135);
             objectarray.push(s);
             }
-        
+        //Bäume
         for (let i: number = 0; i < ntree; i++) {
             let s: treeclass = new treeclass(50, 500);
-            treearray.push(s);
+            objectarray.push(s);
             }
-        
+        //Schnee
         for (let i: number = 0; i < nsnow; i++) {   
             let s: snowclass = new snowclass(0, 0);
             objectarray.push(s);
@@ -126,23 +118,7 @@ namespace Aufgabe06 { //Block Gültigkeit
     }
 //-----------------------------------------------------------------------------------------------
     
-    //Wolke1 
-    /*function wolke(_x: number, _y: number): void{
-        crc2.beginPath();
-        crc2.arc(_x + 50, _y + 70, 40, 0, 2 * Math.PI);
-        crc2.fillStyle = "#ffffff";
-        crc2.fill();
-
-        crc2.beginPath();
-        crc2.arc(_x, _y + 70, 40, 0, 2 * Math.PI);
-        crc2.fillStyle = "#ffffff";
-        crc2.fill();
-
-        crc2.beginPath();
-        crc2.arc(_x + 25, _y + 50, 40, 0, 2 * Math.PI);
-        crc2.fillStyle = "#ffffff";
-        crc2.fill();
-    }*/
+   
     
 
 //--------------------------------------------ANIMATE--------------------------------------------
@@ -158,29 +134,6 @@ namespace Aufgabe06 { //Block Gültigkeit
             s.update(); 
             console.log("animate schleife");
         }
-        
-        
-            //Gondel
-           /* for (let i: number = 0; i < gondelX.length; i++) {
-            if (gondelX[i] < 0) {
-                gondelX[i] = 800;
-                gondelY[i] = 500;
-            }*/
-            /*
-            gondelX[i] -= 0.8;//8; // -800 / 10;
-            gondelY[i] -= 0.47;//4.7; // -470 / 10;
-            gondel(gondelX[i], gondelY[i]);
-            }*/
-            
-           /*  //Wolke 
-            for (let i: number = 0; i < wolkeX.length; i++) {
-            if (wolkeX[i] > 800) {
-                wolkeX[i] = 0;
-            }
-            wolkeX[i] += + 0.1; // geschwindigkeit Wolke X
-            wolkeY[i] += + 0; // keine höhenänderung
-            wolke(wolkeX[i], wolkeY[i]);
-            }*/
 
 
         window.setTimeout(animate, 20);

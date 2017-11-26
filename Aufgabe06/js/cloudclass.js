@@ -13,7 +13,7 @@ var Aufgabe06;
             this.color = "#ffffff";
             this.x = _x;
             this.y = _y;
-            this.vx = 10;
+            this.vx = 0.2;
             this.vy = 0;
         }
         //---------------------------------------------------------------------------------------------------           
@@ -21,8 +21,8 @@ var Aufgabe06;
         move() {
             this.x += this.vx;
             this.y += this.vy;
-            //Schleife für die kontinuierliche Wolke
-            if (this.x < 800) {
+            //Schleife für die kontinuierliche Wolken
+            if (this.x > 800) {
                 this.x = 0;
                 this.y = 0;
             }

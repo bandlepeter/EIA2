@@ -5,7 +5,6 @@ var Aufgabe06;
         //--------------------------------------------CONSTRUCTOR--------------------------------------------
         constructor(_x, _y) {
             console.log("Create Oject");
-            this.setRandomStyle();
             this.x = _x;
             this.y = _y;
         }
@@ -14,7 +13,6 @@ var Aufgabe06;
         update() {
             this.move();
             this.draw();
-            this.setRandomStyle();
         }
         //Bewegung des Objekts
         move() {
@@ -23,9 +21,6 @@ var Aufgabe06;
         }
         //Zeichnung des Objekts
         draw() {
-        }
-        //Farbgebung
-        setRandomStyle() {
         }
     }
     Aufgabe06.objectclass = objectclass; //class close

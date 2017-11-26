@@ -9,7 +9,6 @@ namespace Aufgabe06 { //Block Gültigkeit
 //--------------------------------------------CONSTRUCTOR--------------------------------------------
             constructor(_x: number, _y: number) {
             console.log("Create Oject");
-            this.setRandomStyle();
             this.x = _x;
             this.y = _y;
             }
@@ -18,7 +17,7 @@ namespace Aufgabe06 { //Block Gültigkeit
                 update(): void {
                     this.move();
                     this.draw();
-                    this.setRandomStyle();
+                    
                     }
                 
                 //Bewegung des Objekts
@@ -32,10 +31,6 @@ namespace Aufgabe06 { //Block Gültigkeit
                     
                     }
                 
-                //Farbgebung
-                setRandomStyle(): void {
-                    
-                    }
                 
         }//class close
 }//Ende Block Gültigkeit

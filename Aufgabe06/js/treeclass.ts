@@ -12,11 +12,11 @@ namespace Aufgabe06 { //Block Gültigkeit
                 console.log("Create Tree");
                 this.x = _x + Math.random() * 270;//Position zufällig
                 this.y = _y + Math.random() * 70;//Position zufällig
-                this. vx = 0;
-                this. vy = 0;
+                this. vx = 0;//Bäume bewegen sich nicht
+                this. vy = 0;//Bäume bewegen sich nicht
                 }
 //---------------------------------------------------------------------------------------------------       
-
+            
                 //Zeichnung des Objekts Baum
                 draw(): void {
                     //Baumstamm  
