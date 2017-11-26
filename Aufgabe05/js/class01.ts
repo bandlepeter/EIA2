@@ -85,7 +85,7 @@ namespace Aufgabe05 { //Block Gültigkeit
             crc2.stroke();
             crc2.fillStyle = this.color;//"#ff7700";
             crc2.fill();
-        
+       
             //schädel
             crc2.beginPath();
             crc2.arc(this.x + 0, this.y + -48, 8, 0, 2 * Math.PI);
