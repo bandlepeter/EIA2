@@ -3,11 +3,14 @@ var Aufgabe06;
     window.addEventListener("load", init);
     //--------------------------------------------Variablen--------------------------------------------    
     let objectarray = [];
-    let skiarray = [];
-    let snowarray = [];
-    let gondelarray = [];
-    let cloudarray = [];
-    let treearray = [];
+    //Nicht mehr nötig weil die Werte in den objectarray geschrieben werden
+    //manchmal lasse ich auskommentiertes im Code, damit ich mir merke für was es war 
+    //oder bsp in den Klassen um zu sehen welche Optionen ich habe
+    //let skiarray: skiclass[] = [];
+    //let snowarray: snowclass[] = [];
+    //let gondelarray: gondelclass[] = [];
+    //let cloudarray: cloudclass[] = [];
+    //let treearray: treeclass[] = [];
     let nski = 3; //n = Anzahl der Skiefahrer
     let nsnow = 50; //n = Anzahl der Schneeflocken
     let ncloud = 1; //n = Anzahl der Wolken

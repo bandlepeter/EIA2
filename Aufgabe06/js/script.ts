@@ -5,11 +5,14 @@ namespace Aufgabe06 { //Block Gültigkeit
 
 //--------------------------------------------Variablen--------------------------------------------    
     let objectarray: objectclass[] = [];
-    let skiarray: skiclass[] = [];
-    let snowarray: snowclass[] = [];
-    let gondelarray: gondelclass[] = [];
-    let cloudarray: cloudclass[] = [];
-    let treearray: treeclass[] = [];
+    //Nicht mehr nötig weil die Werte in den objectarray geschrieben werden
+    //manchmal lasse ich auskommentiertes im Code, damit ich mir merke für was es war 
+    //oder bsp in den Klassen um zu sehen welche Optionen ich habe
+    //let skiarray: skiclass[] = [];
+    //let snowarray: snowclass[] = [];
+    //let gondelarray: gondelclass[] = [];
+    //let cloudarray: cloudclass[] = [];
+    //let treearray: treeclass[] = [];
 
     let nski: number = 3;//n = Anzahl der Skiefahrer
     let nsnow: number = 50;//n = Anzahl der Schneeflocken
