@@ -26,8 +26,10 @@ namespace Flaschendrehen { //Block Gültigkeit
                         
                         //crc2.save();//bringt nur was wenn Restore geht
                         //Auskommentiert dreht es sich richtig jedoch oben im Eck 
-                        //crc2.translate(this.x, this.y);//verschiebt Objekt und nicht den Koordinatenmittelpunkt
+                        crc2.translate(this.x, this.y);//verschiebt Objekt und nicht den Koordinatenmittelpunkt
                         crc2.rotate(1);//in Rad //Wert 1 sah am elegantesten aus
+                        
+                        
                         //crc2.restore();//geht nicht da dann der Pfeil sich nicht mehr dreht
                         
                         
@@ -60,7 +62,7 @@ namespace Flaschendrehen { //Block Gültigkeit
                 draw(): void {
                     //console.log("draw Arrow")
                     
-                    /* normaler pfeil
+                    /*// normaler pfeil
                     crc2.beginPath();
                     crc2.moveTo(0 + this.x, 50 + this.y);
                     crc2.lineTo(-50 + this.x, 50 + this.y);
@@ -83,7 +85,7 @@ namespace Flaschendrehen { //Block Gültigkeit
                     crc2.fillStyle = "#3333cc";//Blau
                     
                     crc2.fill();
-                    
+                    crc2.restore();// wergen rotation
                     
                 }
         }//class close

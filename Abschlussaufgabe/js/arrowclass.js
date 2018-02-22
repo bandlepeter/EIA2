@@ -24,7 +24,7 @@ var Flaschendrehen;
                 //crc2.translate(this.x, this.y);
                 //crc2.save();//bringt nur was wenn Restore geht
                 //Auskommentiert dreht es sich richtig jedoch oben im Eck 
-                //crc2.translate(this.x, this.y);//verschiebt Objekt und nicht den Koordinatenmittelpunkt
+                Flaschendrehen.crc2.translate(this.x, this.y); //verschiebt Objekt und nicht den Koordinatenmittelpunkt
                 Flaschendrehen.crc2.rotate(1); //in Rad //Wert 1 sah am elegantesten aus
             }
             //crc2.scale(this.x, this.y)//Verzerrt
@@ -45,7 +45,7 @@ var Flaschendrehen;
         //Zeichnung des Objekts
         draw() {
             //console.log("draw Arrow")
-            /* normaler pfeil
+            /*// normaler pfeil
             crc2.beginPath();
             crc2.moveTo(0 + this.x, 50 + this.y);
             crc2.lineTo(-50 + this.x, 50 + this.y);
@@ -62,6 +62,7 @@ var Flaschendrehen;
             Flaschendrehen.crc2.stroke();
             Flaschendrehen.crc2.fillStyle = "#3333cc"; //Blau
             Flaschendrehen.crc2.fill();
+            Flaschendrehen.crc2.restore(); // wergen rotation
         }
     }
     Flaschendrehen.arrowclass = arrowclass; //class close
