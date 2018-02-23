@@ -13,7 +13,7 @@ var Flaschendrehen;
     if (Flaschendrehen.input1 == "") {
         Flaschendrehen.input1 = "Wahrheit";
     }
-    ;
+    ; //Falls nichts eingegeben automatisch Generierter Inhalt
     Flaschendrehen.input2 = prompt("Punkt 2");
     if (Flaschendrehen.input2 == "") {
         Flaschendrehen.input2 = "Pflicht";
@@ -53,8 +53,6 @@ var Flaschendrehen;
     let objectarray = [];
     let randomtime;
     Flaschendrehen.state = false;
-    let angle;
-    angle = 0; //Startwertwinkel
     var image;
     //--------------------------------------------Init-------------------------------------------- 
     function init() {
@@ -65,42 +63,31 @@ var Flaschendrehen;
         console.log("setTimeout");
         //Button Event
         document.getElementById("buttonid").addEventListener("click", startbutton);
-        //Hintergrund
-        //crc2.fillStyle = "#99ffff";
-        //crc2.fillRect(0, 0, 640, 640);
-        /*let schrift: HTMLDivElement = <HTMLDivElement>document.getElementById("mainid");
-                    let h: HTMLElement = document.createElement("h2");
-            
-//                    document.body.appendChild(h);
-                    //h.innerText = input1;
-                    h.innerText = input1;
-                    h.style.position = "fixed";
-                    h.style.top = "80px";
-                    h.style.left = "300px";
-                    schrift.appendChild(h);//an kind anhängen*/
+        //Beschriftungen im Canvas (Punkte)
+        //Koordinaten wirken einwenig wirr, jedoch geben die Koordinaten den Wortanfang an
         Flaschendrehen.crc2.font = "20px Helvetica";
-        Flaschendrehen.crc2.fillText(Flaschendrehen.input1, 300, 50);
+        Flaschendrehen.crc2.fillText(Flaschendrehen.input1, 290, 50);
         Flaschendrehen.crc2.fillText(Flaschendrehen.input2, 470, 150);
         Flaschendrehen.crc2.fillText(Flaschendrehen.input3, 550, 320);
         Flaschendrehen.crc2.fillText(Flaschendrehen.input4, 470, 500);
-        Flaschendrehen.crc2.fillText(Flaschendrehen.input5, 300, 610);
+        Flaschendrehen.crc2.fillText(Flaschendrehen.input5, 290, 610);
         Flaschendrehen.crc2.fillText(Flaschendrehen.input6, 120, 500);
         Flaschendrehen.crc2.fillText(Flaschendrehen.input7, 30, 320);
         Flaschendrehen.crc2.fillText(Flaschendrehen.input8, 120, 150);
         //--------------------------------------------INIT-SCHLEIFEN--------------------------------------------
-        /*//Kreis
-            for (let i: number = 0; i < 1; i++) {
-                let s: circleclass = new circleclass(320, 320, 0);
+        //Kreis
+        /*for (let i: number = 0; i < 1; i++) {
+            let s: circleclass = new circleclass(320, 320, 0);
+            objectarray.push(s);
+            }*/
+        //Schriften    
+        /*for (let i: number = 0; i < 1; i++) {
+                let s: inputclass = new inputclass(0, 0);
                 objectarray.push(s);
                 }*/
-        //Schriften    
-        /*for (let i: number = 0; i < 8; i++) {
-                let s: inputclass = new inputclass(320, 320, angle);
-                objectarray.push(s);
-                }   */
         //Pfeil
         for (let i = 0; i < 1; i++) {
-            let s = new Flaschendrehen.arrowclass(320, 320, angle);
+            let s = new Flaschendrehen.arrowclass(320, 320);
             objectarray.push(s);
         }
         //console.log(objectarray);
@@ -108,7 +95,7 @@ var Flaschendrehen;
         //Bild wird gespeichert
         image = Flaschendrehen.crc2.getImageData(0, 0, 640, 640);
         animate();
-        console.log("Save Image");
+        //console.log("Save Image")
     }
     //-----------------------------------------------------------------------------------------------
     //--------------------------------------------ANIMATE--------------------------------------------
@@ -120,20 +107,22 @@ var Flaschendrehen;
         for (let i = 0; i < objectarray.length; i++) {
             let s = objectarray[i];
             s.update();
-            console.log("animate schleife");
         }
         window.setTimeout(animate, 20);
     }
     //--------------------------------------------Start-Rotation--------------------------------------------    
     function startbutton() {
-        randomtime = 4000 + Math.random() * 500;
-        window.setTimeout(spintime, randomtime);
+        Flaschendrehen.crc2.restore(); //muss vor save und translate
+        Flaschendrehen.crc2.save(); //Speicherung des Canvaszustand vor Rotation
+        Flaschendrehen.crc2.translate(320, 320); //verschiebung des Canvas in den Canvasmittelpunkt für die Animierte Roration
+        randomtime = 4000 + Math.random() * 500; //4000ms Mindestdrehzeit + zufällig zwischen 0 und 500ms
+        window.setTimeout(spintime, randomtime); //Aufruf zu rotationsende
         //console.log("Button Test")
-        Flaschendrehen.state = true;
+        Flaschendrehen.state = true; //Aktiviert die animierte Rotation bei Buttonklick
     }
     function spintime() {
         //console.log("Button spin")
-        Flaschendrehen.state = false;
+        Flaschendrehen.state = false; //beendet rotation nach timeout
     }
 })(Flaschendrehen || (Flaschendrehen = {})); //Ende Block Gültigkeit
 //# sourceMappingURL=main.js.map

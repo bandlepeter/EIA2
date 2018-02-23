@@ -11,9 +11,9 @@ namespace Flaschendrehen { //Block Gültigkeit
 //--------------------------------------------Aufrufe-------------------------------------------- 
     window.addEventListener("load", init);
 //--------------------------------------------Prompt-Variablen--------------------------------------------     
-    export  let input1: string;
+    export  let input1: string;//Variable der einzelnen Punkte
                 input1 = prompt("Geben Sie hier die Punkte auf die der Pfeil zeigen kann an: Punkt 1");
-                if (input1 == ""){input1 = "Wahrheit"};
+                if (input1 == ""){input1 = "Wahrheit"};//Falls nichts eingegeben automatisch Generierter Inhalt
     export  let input2: string;
                 input2 = prompt("Punkt 2");
                 if (input2 == ""){input2 = "Pflicht"};
@@ -45,8 +45,6 @@ namespace Flaschendrehen { //Block Gültigkeit
     let randomtime: number;
     export let state: boolean;
         state = false;
-    let angle : number;
-        angle = 0;//Startwertwinkel
     var image : any;
     
     
@@ -60,45 +58,35 @@ namespace Flaschendrehen { //Block Gültigkeit
         
         //Button Event
         document.getElementById("buttonid").addEventListener("click", startbutton);
-        //Hintergrund
-        //crc2.fillStyle = "#99ffff";
-        //crc2.fillRect(0, 0, 640, 640);
         
-        /*let schrift: HTMLDivElement = <HTMLDivElement>document.getElementById("mainid");
-                    let h: HTMLElement = document.createElement("h2");
-            
-//                    document.body.appendChild(h);
-                    //h.innerText = input1;
-                    h.innerText = input1;
-                    h.style.position = "fixed";
-                    h.style.top = "80px";
-                    h.style.left = "300px";
-                    schrift.appendChild(h);//an kind anhängen*/
         
+        //Beschriftungen im Canvas (Punkte)
+        //Koordinaten wirken einwenig wirr, jedoch geben die Koordinaten den Wortanfang an
         crc2.font = "20px Helvetica";
-        crc2.fillText(input1,300,50);
+        crc2.fillText(input1,290,50);
         crc2.fillText(input2,470,150);
         crc2.fillText(input3,550,320);
         crc2.fillText(input4,470,500);
-        crc2.fillText(input5,300,610);
+        crc2.fillText(input5,290,610);
         crc2.fillText(input6,120,500);
         crc2.fillText(input7,30,320);
         crc2.fillText(input8,120,150);
     
 //--------------------------------------------INIT-SCHLEIFEN--------------------------------------------
-    /*//Kreis
-        for (let i: number = 0; i < 1; i++) {
+    //Kreis
+        /*for (let i: number = 0; i < 1; i++) {
             let s: circleclass = new circleclass(320, 320, 0);
             objectarray.push(s);
             }*/
     //Schriften    
-    /*for (let i: number = 0; i < 8; i++) {
-            let s: inputclass = new inputclass(320, 320, angle);
+    /*for (let i: number = 0; i < 1; i++) {
+            let s: inputclass = new inputclass(0, 0);
             objectarray.push(s);
-            }   */ 
+            }*/
     //Pfeil
+        
         for (let i: number = 0; i < 1; i++) {
-            let s: arrowclass = new arrowclass(320, 320, angle);
+            let s: arrowclass = new arrowclass(320, 320);
             objectarray.push(s);
             }
     
@@ -108,13 +96,13 @@ namespace Flaschendrehen { //Block Gültigkeit
         //Bild wird gespeichert
         image = crc2.getImageData(0, 0, 640, 640);
         animate();
-        console.log("Save Image")
+        //console.log("Save Image")
     }
 //-----------------------------------------------------------------------------------------------
 
     
     
-    
+   
 
 //--------------------------------------------ANIMATE--------------------------------------------
     function animate(): void {
@@ -127,7 +115,7 @@ namespace Flaschendrehen { //Block Gültigkeit
         for (let i: number = 0; i < objectarray.length; i++) {
             let s: objectclass = objectarray[i];
             s.update(); 
-            console.log("animate schleife");
+            //console.log("animate schleife");
         }
 
 
@@ -136,14 +124,21 @@ namespace Flaschendrehen { //Block Gültigkeit
     }
 //--------------------------------------------Start-Rotation--------------------------------------------    
     function startbutton(): void{
-        randomtime = 4000 + Math.random() * 500;
-        window.setTimeout(spintime, randomtime)
+        crc2.restore();//muss vor save und translate
+        crc2.save();//Speicherung des Canvaszustand vor Rotation
+        crc2.translate(320, 320);//verschiebung des Canvas in den Canvasmittelpunkt für die Animierte Roration
+        
+        randomtime = 4000 + Math.random() * 500;//4000ms Mindestdrehzeit + zufällig zwischen 0 und 500ms
+        window.setTimeout(spintime, randomtime)//Aufruf zu rotationsende
+        
         //console.log("Button Test")
-        state = true; 
+        state = true;//Aktiviert die animierte Rotation bei Buttonklick
+        
     }
-    function spintime(): void{
+    function spintime(): void{ 
         //console.log("Button spin")
-        state = false;
+        state = false;//beendet rotation nach timeout
+        
     }
     
     

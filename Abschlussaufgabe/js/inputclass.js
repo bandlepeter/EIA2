@@ -8,10 +8,9 @@ var Flaschendrehen;
         //vr: number;
         //color: string;
         //--------------------------------------------CONSTRUCTOR--------------------------------------------
-        constructor(_x, _y, _vr) {
-            super(_x, _y, _vr);
-            console.log("Create h2");
-            this.color = "#ffffff";
+        constructor(_x, _y) {
+            super(_x, _y);
+            //console.log("Create Schrift");
             this.x = _x;
             this.y = _y;
             //this.vx = 0.2;
@@ -23,18 +22,16 @@ var Flaschendrehen;
         }
         //Zeichnung des Objekts
         draw() {
-            Flaschendrehen.crc2.font = "30px Arial";
-            Flaschendrehen.crc2.fillText("Hello World", 10, 50);
-            /*let schrift: HTMLDivElement = <HTMLDivElement>document.getElementById("mainid");
-            let h: HTMLElement = document.createElement("h2");
-    
-//                    document.body.appendChild(h);
-            //h.innerText = input1;
-            h.innerText = "test";
-            h.style.position = "fixed";
-            h.style.top = "10px";
-            h.style.left = "320px";
-            schrift.appendChild(h);//an kind anhängen*/
+            //Koordinaten wirken einwenig wirr, jedoch geben die Koordinaten den Wortanfang an
+            Flaschendrehen.crc2.font = "20px Helvetica";
+            Flaschendrehen.crc2.fillText(Flaschendrehen.input1, 290, 50);
+            Flaschendrehen.crc2.fillText(Flaschendrehen.input2, 470, 150);
+            Flaschendrehen.crc2.fillText(Flaschendrehen.input3, 550, 320);
+            Flaschendrehen.crc2.fillText(Flaschendrehen.input4, 470, 500);
+            Flaschendrehen.crc2.fillText(Flaschendrehen.input5, 290, 610);
+            Flaschendrehen.crc2.fillText(Flaschendrehen.input6, 120, 500);
+            Flaschendrehen.crc2.fillText(Flaschendrehen.input7, 30, 320);
+            Flaschendrehen.crc2.fillText(Flaschendrehen.input8, 120, 150);
         }
     }
     Flaschendrehen.inputclass = inputclass; //class close

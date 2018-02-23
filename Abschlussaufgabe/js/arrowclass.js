@@ -1,68 +1,54 @@
+//Flaschendrehen
+//Name: Peter Bandle
+//Matrikel: 256324
+//Datum: 23.02.18
+//Hiermit versichere ich, dass ich diesen
+//Code selbst geschrieben habe. Er wurde
+//nicht kopiert und auch nicht diktiert.
 var Flaschendrehen;
 (function (Flaschendrehen) {
     class arrowclass extends Flaschendrehen.objectclass {
         //x: number;
         //y: number;
-        //vx: number;
-        //vy: number;
-        //vr: number;
-        //color: string;
         //--------------------------------------------CONSTRUCTOR--------------------------------------------
-        constructor(_x, _y, _vr) {
-            super(_x, _y, _vr);
-            console.log("Create Arrow");
-            this.color = "#ffffff";
+        constructor(_x, _y) {
+            super(_x, _y);
+            //console.log("Create Arrow");
             this.x = _x;
             this.y = _y;
-            //this.vx = 0.2;
-            //this.vy = 0;
         }
         //---------------------------------------------------------------------------------------------------           
         //Bewegung des Objekts (Drehung Pfeil)
         move() {
+            //Rotation solange state auf true gesetzt ist
             if (Flaschendrehen.state == true) {
-                //crc2.translate(this.x, this.y);
-                //crc2.save();//bringt nur was wenn Restore geht
+                //crc2.save();//bringt nur was wenn restore geht
                 //Auskommentiert dreht es sich richtig jedoch oben im Eck 
-                Flaschendrehen.crc2.translate(this.x, this.y); //verschiebt Objekt und nicht den Koordinatenmittelpunkt
+                //crc2.translate(this.x, this.y);//verschiebt Objekt und nicht den Koordinatenmittelpunkt
                 Flaschendrehen.crc2.rotate(1); //in Rad //Wert 1 sah am elegantesten aus
             }
-            //crc2.scale(this.x, this.y)//Verzerrt
-            //crc2.translate(this.x, this.y);
-            //crc2.translate(this.x, this.y);
-            //                    crc2.translate(this.x, this.y);
-            //crc2.rotate(Math.PI/4);
-            //crc2.rotate(1);
-            //crc2.drawImage()
-            //this.vr
-            //this.x += this.vx;
-            //this.y += this.vy;
-            //Schleife für die kontinuierliche Wolken
-            //if (this.x > 800) {
-            //this.x = 0;
-            //this.y = 0;}
         }
         //Zeichnung des Objekts
         draw() {
             //console.log("draw Arrow")
-            /*// normaler pfeil
+            /*// normaler/ursprünglicher Pfeil, wurde wegen Rotation abgeändert
             crc2.beginPath();
             crc2.moveTo(0 + this.x, 50 + this.y);
             crc2.lineTo(-50 + this.x, 50 + this.y);
             crc2.lineTo(0 + this.x, -100 + this.y);
             crc2.lineTo(50 + this.x, 50 + this.y);
             crc2.lineTo(0 + this.x, 50 + this.y);*/
+            //Pfeil (mit Mittelpunkt in sich selbst)
             Flaschendrehen.crc2.beginPath();
-            Flaschendrehen.crc2.moveTo(0, 50);
+            Flaschendrehen.crc2.moveTo(0, 30);
             Flaschendrehen.crc2.lineTo(-50, 50);
             Flaschendrehen.crc2.lineTo(0, -100);
             Flaschendrehen.crc2.lineTo(50, 50);
-            Flaschendrehen.crc2.lineTo(0, 50);
+            Flaschendrehen.crc2.lineTo(0, 30);
             Flaschendrehen.crc2.closePath();
             Flaschendrehen.crc2.stroke();
             Flaschendrehen.crc2.fillStyle = "#3333cc"; //Blau
             Flaschendrehen.crc2.fill();
-            Flaschendrehen.crc2.restore(); // wergen rotation
         }
     }
     Flaschendrehen.arrowclass = arrowclass; //class close

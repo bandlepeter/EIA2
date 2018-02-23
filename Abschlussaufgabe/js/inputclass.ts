@@ -8,10 +8,10 @@ namespace Flaschendrehen { //Block Gültigkeit
             //vr: number;
             //color: string;
 //--------------------------------------------CONSTRUCTOR--------------------------------------------
-            constructor(_x: number, _y: number, _vr: number) {
-                super(_x, _y, _vr);
-                console.log("Create h2");
-                this.color = "#ffffff";
+            constructor(_x: number, _y: number) {
+                super(_x, _y);
+                //console.log("Create Schrift");
+                
                 this.x = _x;
                 this.y = _y;
                 //this.vx = 0.2;
@@ -25,19 +25,17 @@ namespace Flaschendrehen { //Block Gültigkeit
             
                 //Zeichnung des Objekts
                 draw(): void {
-                    crc2.font = "30px Arial";
-crc2.fillText("Hello World",10,50);
+                    //Koordinaten wirken einwenig wirr, jedoch geben die Koordinaten den Wortanfang an
+        crc2.font = "20px Helvetica";
+        crc2.fillText(input1,290,50);
+        crc2.fillText(input2,470,150);
+        crc2.fillText(input3,550,320);
+        crc2.fillText(input4,470,500);
+        crc2.fillText(input5,290,610);
+        crc2.fillText(input6,120,500);
+        crc2.fillText(input7,30,320);
+        crc2.fillText(input8,120,150);
                     
-                    /*let schrift: HTMLDivElement = <HTMLDivElement>document.getElementById("mainid");
-                    let h: HTMLElement = document.createElement("h2");
-            
-//                    document.body.appendChild(h);
-                    //h.innerText = input1;
-                    h.innerText = "test";
-                    h.style.position = "fixed";
-                    h.style.top = "10px";
-                    h.style.left = "320px";
-                    schrift.appendChild(h);//an kind anhängen*/
                     
                     
                 }

@@ -1,3 +1,11 @@
+/*Flaschendrehen
+Name: Peter Bandle
+Matrikel: 256324
+Datum: 23.02.18
+Hiermit versichere ich, dass ich diesen
+Code selbst geschrieben habe. Er wurde
+nicht kopiert und auch nicht diktiert.*/
+
 body{
 	padding: 0;
 	margin: 0;
@@ -19,7 +27,7 @@ h2{
 }
 
 canvas{
-	/*width: 100%;*/
+	width: 100%;
 }
 #buttonid{
 	display: inline-block;

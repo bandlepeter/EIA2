@@ -12,13 +12,15 @@ nicht kopiert und auch nicht diktiert. -->
 	<title>Flaschendrehen</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- Seite in Fullscreen auf iOS -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- Seite in Fullscreen auf iOS -->
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="icon" href="img/logo.png">
+	<link rel="apple-touch-icon" href="img/logo.png"/><!-- icon für iOS Devices wenn man die Seite auf den Homebildschirm speichert -->
 	<script src="js/objectclass.js"></script>
-	<script src="js/circleclass.js"></script>
+	<!-- <script src="js/circleclass.js"></script> Wurde aufgrund von Optik entfernt -->
 	<script src="js/arrowclass.js"></script>	 
-	<!-- <script src="js/inputclass.js"></script> -->
-	<!-- <script src="js/skiclass.js"></script> -->
-	<!-- <script src="js/treeclass.js"></script> -->
+	<!-- <script src="js/inputclass.js"></script> Wurde aufgrund von Problematiken mit der Animation in die main.ts verlagert -->
 	
 	<script src="js/main.js"></script>
 </head>
@@ -30,7 +32,6 @@ nicht kopiert und auch nicht diktiert. -->
 		</canvas>
 		<br>
 		<button id="buttonid">Start</button>
-		<!-- <button id="buttonid" onclick="startbutton();">Start</button> -->
 	</main>
 </body>
 </html>

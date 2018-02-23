@@ -1,13 +1,19 @@
+//Flaschendrehen
+//Name: Peter Bandle
+//Matrikel: 256324
+//Datum: 23.02.18
+//Hiermit versichere ich, dass ich diesen
+//Code selbst geschrieben habe. Er wurde
+//nicht kopiert und auch nicht diktiert.
 var Flaschendrehen;
 (function (Flaschendrehen) {
     //--------------------------------------------OBJECT--------------------------------------------
     class objectclass {
         //--------------------------------------------CONSTRUCTOR--------------------------------------------
-        constructor(_x, _y, _vr) {
+        constructor(_x, _y) {
             //console.log("Create Oject");//Später auskommentieren
             this.x = _x;
             this.y = _y;
-            this.vr = _vr;
         }
         //---------------------------------------------------------------------------------------------------         
         //Update Objekts
@@ -17,8 +23,6 @@ var Flaschendrehen;
         }
         //Bewegung des Objekts
         move() {
-            //this.x += this.vx;
-            //this.y += this.vy;
         }
         //Zeichnung des Objekts
         draw() {
